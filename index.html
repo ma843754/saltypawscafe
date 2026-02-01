@@ -24,64 +24,230 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <h1>Good Vibes, Great Coffee &amp; Happy Dogs</h1>
-      <p>Satellite Beach's favorite dog-friendly caf&eacute; &mdash; serving handcrafted espresso, refreshing energy drinks, and endless tail wags right by the shore.</p>
+  <section class="hero hero--home">
+    <div class="hero__backdrop"></div>
+    <div class="container hero__inner">
+      <span class="hero__badge">&#128054; Dog-Friendly &bull; &#127754; Beachside &bull; &#9749; Craft Coffee</span>
+      <h1>Where Sandy Paws<br>Meet Great Coffee</h1>
+      <p class="hero__sub">Satellite Beach's original dog-friendly caf&eacute; &mdash; handcrafted espresso, bold energy drinks, and ocean breezes just steps from the shore.</p>
       <div class="hero-buttons">
-        <a href="menu.html" class="btn btn--primary">View Our Menu</a>
-        <a href="about.html" class="btn btn--outline">Our Story</a>
+        <a href="menu.html" class="btn btn--primary btn--lg">Explore the Menu</a>
+        <a href="contact.html" class="btn btn--outline btn--lg">Visit Us Today</a>
+      </div>
+      <div class="hero__tags">
+        <span>&#9749; Espresso &amp; Cold Brew</span>
+        <span>&#9889; Energy Drinks</span>
+        <span>&#128054; Pup Treats</span>
+        <span>&#128085; Branded Merch</span>
       </div>
     </div>
   </section>
 
-  <!-- Features -->
+  <!-- About / Overview -->
   <section class="section">
-    <div class="container text-center">
-      <h2>Why You'll Love Salty Paws</h2>
-      <p>More than just coffee &mdash; it's a community hangout for people and their pups.</p>
-      <div class="card-grid">
-        <div class="card">
-          <div class="card-icon">&#9749;</div>
-          <h3>Craft Espresso</h3>
-          <p>Locally roasted beans pulled into silky lattes, cold brews, and signature beach-inspired creations.</p>
+    <div class="container">
+      <div class="overview">
+        <div class="overview__text">
+          <h2>A Beach Caf&eacute; Built for You <em>&amp; Your Dog</em></h2>
+          <p>Salty Paws Caf&eacute; is a laid-back coffee bar in the heart of <strong>Satellite Beach, Florida</strong>, where the dress code is flip-flops and every guest gets a tail wag at the door. We roast locally, pour carefully, and welcome dogs of every size onto our shaded patio.</p>
+          <p>Our menu is built around two things we do best: <strong>specialty espresso</strong> pulled from single-origin beans and <strong>hand-mixed energy drinks</strong> in bold, tropical flavors you won't find anywhere else on the coast. Pair either with an ocean breeze and you've got the perfect Satellite Beach morning.</p>
+          <div class="overview__stats">
+            <div class="stat">
+              <span class="stat__number">15+</span>
+              <span class="stat__label">Espresso &amp; Energy Drinks</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">100%</span>
+              <span class="stat__label">Dog Friendly</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number">Steps</span>
+              <span class="stat__label">From the Beach</span>
+            </div>
+          </div>
+          <a href="about.html" class="btn btn--primary">Our Full Story</a>
         </div>
-        <div class="card">
-          <div class="card-icon">&#9889;</div>
-          <h3>Energy Drinks</h3>
-          <p>Bold, refreshing energy drinks in tropical flavors to fuel your morning surf or afternoon stroll.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">&#128054;</div>
-          <h3>Dog Friendly</h3>
-          <p>Pups are always welcome &mdash; enjoy our shaded patio, water bowls, and special doggy treats.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">&#127754;</div>
-          <h3>Beach Vibes</h3>
-          <p>Steps from the sand, our caf&eacute; is the perfect post-beach hangout with ocean breezes and good tunes.</p>
+        <div class="overview__visual">
+          <div class="overview__card overview__card--top">
+            <span class="overview__card-icon">&#9749;</span>
+            <div>
+              <strong>Craft Espresso</strong>
+              <p>Locally roasted, single-origin beans pulled into lattes, cold brews, and signature creations.</p>
+            </div>
+          </div>
+          <div class="overview__card overview__card--mid">
+            <span class="overview__card-icon">&#9889;</span>
+            <div>
+              <strong>Energy Drinks</strong>
+              <p>Tropical, hand-mixed refreshers with B-vitamins and electrolytes &mdash; no canned stuff here.</p>
+            </div>
+          </div>
+          <div class="overview__card overview__card--bot">
+            <span class="overview__card-icon">&#128054;</span>
+            <div>
+              <strong>Pup Perks</strong>
+              <p>Free puppuccinos, house-baked biscuits, water bowls, and a shaded patio built for dogs.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Call to Action -->
+  <!-- Drinks Preview -->
   <section class="section section--alt">
-    <div class="container text-center">
-      <h2>Grab Your Merch</h2>
-      <p>Rep the Salty Paws lifestyle with our branded tees, hats, stickers, and more.</p>
-      <br>
-      <a href="merch.html" class="btn btn--primary">Shop Merch</a>
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Featured Drinks</h2>
+        <p>From silky espresso to fruit-forward energy blends &mdash; here's what's pouring today.</p>
+      </div>
+      <div class="preview-grid">
+        <!-- Espresso picks -->
+        <div class="preview-card">
+          <div class="preview-card__img" style="background: linear-gradient(135deg, var(--driftwood), var(--driftwood-light));">
+            <span>&#9749;</span>
+          </div>
+          <div class="preview-card__body">
+            <span class="preview-card__tag">Signature</span>
+            <h3>Salty Paws Latte</h3>
+            <p>Salted caramel, oat milk, and our house espresso topped with sea-salt foam.</p>
+            <span class="preview-card__price">$6.25</span>
+          </div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-card__img" style="background: linear-gradient(135deg, #3a2218, #6b4c3b);">
+            <span>&#9749;</span>
+          </div>
+          <div class="preview-card__body">
+            <span class="preview-card__tag">Fan Favorite</span>
+            <h3>Vanilla Cold Brew</h3>
+            <p>Slow-steeped 20-hour cold brew with house-made vanilla syrup over ice.</p>
+            <span class="preview-card__price">$5.75</span>
+          </div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-card__img" style="background: linear-gradient(135deg, #d35400, #e67e22);">
+            <span>&#127818;</span>
+          </div>
+          <div class="preview-card__body">
+            <span class="preview-card__tag preview-card__tag--energy">Energy</span>
+            <h3>Tropical Storm</h3>
+            <p>Mango, passion fruit, and coconut energy blend packed with B-vitamins.</p>
+            <span class="preview-card__price">$5.50</span>
+          </div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-card__img" style="background: linear-gradient(135deg, #8e44ad, #c0392b);">
+            <span>&#127815;</span>
+          </div>
+          <div class="preview-card__body">
+            <span class="preview-card__tag preview-card__tag--energy">Energy</span>
+            <h3>Berry Tide</h3>
+            <p>Mixed berry energy refresher with a hit of lime and added electrolytes.</p>
+            <span class="preview-card__price">$5.50</span>
+          </div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-card__img" style="background: linear-gradient(135deg, var(--ocean-dark), var(--ocean));">
+            <span>&#127849;</span>
+          </div>
+          <div class="preview-card__body">
+            <span class="preview-card__tag">Classic</span>
+            <h3>Mocha Coastline</h3>
+            <p>Rich chocolate and espresso blended with steamed milk. Hot or iced.</p>
+            <span class="preview-card__price">$6.00</span>
+          </div>
+        </div>
+        <div class="preview-card">
+          <div class="preview-card__img" style="background: linear-gradient(135deg, #1abc9c, #16a085);">
+            <span>&#127817;</span>
+          </div>
+          <div class="preview-card__body">
+            <span class="preview-card__tag preview-card__tag--energy">Energy</span>
+            <h3>Watermelon Wave</h3>
+            <p>Refreshing watermelon and mint with green tea extract. Summer in a cup.</p>
+            <span class="preview-card__price">$5.50</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center" style="margin-top: 2.5rem;">
+        <a href="menu.html" class="btn btn--primary">See Full Menu</a>
+      </div>
     </div>
   </section>
 
-  <!-- Visit -->
+  <!-- Merch Preview -->
   <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>Salty Paws Gear</h2>
+        <p>Take the beach-caf&eacute; lifestyle home &mdash; branded apparel, drinkware, and accessories for you and your pup.</p>
+      </div>
+      <div class="merch-preview-grid">
+        <a href="merch.html" class="merch-preview">
+          <div class="merch-preview__img" style="background: linear-gradient(135deg, var(--ocean), var(--ocean-light));">
+            <span>&#128085;</span>
+          </div>
+          <div class="merch-preview__body">
+            <h3>Classic Tee</h3>
+            <span class="merch-preview__price">$28</span>
+          </div>
+        </a>
+        <a href="merch.html" class="merch-preview">
+          <div class="merch-preview__img" style="background: linear-gradient(135deg, var(--sunset), var(--sunset-dark));">
+            <span>&#129506;</span>
+          </div>
+          <div class="merch-preview__body">
+            <h3>Trucker Hat</h3>
+            <span class="merch-preview__price">$24</span>
+          </div>
+        </a>
+        <a href="merch.html" class="merch-preview">
+          <div class="merch-preview__img" style="background: linear-gradient(135deg, var(--driftwood), var(--driftwood-light));">
+            <span>&#9749;</span>
+          </div>
+          <div class="merch-preview__body">
+            <h3>Ceramic Paw Mug</h3>
+            <span class="merch-preview__price">$16</span>
+          </div>
+        </a>
+        <a href="merch.html" class="merch-preview">
+          <div class="merch-preview__img" style="background: linear-gradient(135deg, #2c3e50, #34495e);">
+            <span>&#128054;</span>
+          </div>
+          <div class="merch-preview__body">
+            <h3>Doggy Bandana</h3>
+            <span class="merch-preview__price">$14</span>
+          </div>
+        </a>
+      </div>
+      <div class="text-center" style="margin-top: 2.5rem;">
+        <a href="merch.html" class="btn btn--primary">Browse All Merch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Banner -->
+  <section class="section section--location">
     <div class="container text-center">
-      <h2>Come Visit Us</h2>
-      <p>We're located in the heart of Satellite Beach, Florida. Swing by with your best friend (the furry one) and stay awhile.</p>
-      <br>
-      <a href="contact.html" class="btn btn--primary">Get Directions</a>
+      <span class="location__icon">&#128205;</span>
+      <h2>Find Us in Satellite Beach</h2>
+      <p>Open 7 days a week, right off A1A. Bring your pup, grab a coffee, and stay awhile.</p>
+      <div class="location__details">
+        <div class="location__detail">
+          <strong>&#128336; Hours</strong>
+          <span>Mon&ndash;Fri 6 AM&ndash;6 PM &bull; Sat&ndash;Sun 7 AM&ndash;7 PM</span>
+        </div>
+        <div class="location__detail">
+          <strong>&#128222; Phone</strong>
+          <span>(321) 555-PAWS</span>
+        </div>
+        <div class="location__detail">
+          <strong>&#128205; Address</strong>
+          <span>Satellite Beach, FL 32937</span>
+        </div>
+      </div>
+      <a href="contact.html" class="btn btn--primary btn--lg">Get Directions &amp; Contact</a>
     </div>
   </section>
 
