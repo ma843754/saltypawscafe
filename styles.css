@@ -722,49 +722,136 @@ h3 { font-size: 1.35rem; }
 }
 
 /* ===== Menu Page ===== */
-.menu-category {
-  margin-bottom: 3rem;
-}
-
-.menu-category h2 {
-  border-bottom: 3px solid var(--sunset);
-  display: inline-block;
-  padding-bottom: 0.25rem;
-  margin-bottom: 1.25rem;
-}
-
-.menu-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+.menu-section-header {
+  display: flex;
+  align-items: flex-start;
   gap: 1.25rem;
+  margin-bottom: 2rem;
 }
 
-.menu-item {
+.menu-section-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--ocean-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.menu-section-icon--energy {
+  background: #fde8d0;
+}
+
+.menu-section-header h2 {
+  margin-bottom: 0.3rem;
+}
+
+.menu-section-desc {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.menu-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.menu-card {
   background: var(--white);
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: 1.75rem;
+  box-shadow: 0 3px 14px var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.menu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.13);
+}
+
+.menu-card__header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  box-shadow: 0 2px 10px var(--shadow);
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  gap: 1rem;
 }
 
-.menu-item-info h3 {
+.menu-card__header h3 {
   font-size: 1.1rem;
-  margin-bottom: 0.25rem;
+  margin: 0;
 }
 
-.menu-item-info p {
-  color: var(--text-light);
-  font-size: 0.85rem;
-}
-
-.menu-item-price {
+.menu-card__price {
   font-weight: 800;
   color: var(--ocean);
   font-size: 1.1rem;
   white-space: nowrap;
-  margin-left: 1rem;
+}
+
+.menu-card > p {
+  color: var(--text-light);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+.menu-card__badge {
+  display: inline-block;
+  margin-top: 0.75rem;
+  background: var(--ocean-light);
+  color: var(--ocean-dark);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.menu-card__badge--energy {
+  background: #fde8d0;
+  color: var(--sunset-dark);
+}
+
+/* Pup treats bar */
+.menu-pup-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 3px 14px var(--shadow);
+  border-left: 5px solid var(--sunset);
+}
+
+.menu-pup-bar__icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.menu-pup-bar__body h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+}
+
+.menu-pup-bar__body p {
+  color: var(--text-light);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin: 0;
 }
 
 /* ===== Merch Page ===== */
@@ -1151,9 +1238,14 @@ h3 { font-size: 1.35rem; }
 
   .difference__grid,
   .card-grid,
-  .menu-items,
+  .menu-card-grid,
   .merch-grid {
     grid-template-columns: 1fr;
+  }
+
+  .menu-section-header {
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   .location__details {
