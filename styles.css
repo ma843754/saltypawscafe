@@ -92,6 +92,7 @@ h3 { font-size: 1.35rem; }
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: box-shadow 0.3s;
 }
 
 .header .container {
@@ -99,6 +100,7 @@ h3 { font-size: 1.35rem; }
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 0;
+  position: relative;
 }
 
 .logo {
@@ -109,6 +111,12 @@ h3 { font-size: 1.35rem; }
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  transition: transform 0.2s;
+}
+
+.logo:hover {
+  color: var(--ocean);
+  transform: scale(1.03);
 }
 
 .logo span {
@@ -122,7 +130,13 @@ h3 { font-size: 1.35rem; }
   font-size: 1.6rem;
   cursor: pointer;
   color: var(--ocean);
-  padding: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-toggle:hover {
+  background: var(--sand-light);
 }
 
 .nav-list {
@@ -138,6 +152,7 @@ h3 { font-size: 1.35rem; }
   color: var(--text);
   padding: 0.25rem 0;
   position: relative;
+  transition: color 0.2s;
 }
 
 .nav-list a::after {
@@ -148,7 +163,7 @@ h3 { font-size: 1.35rem; }
   width: 0;
   height: 2px;
   background: var(--sunset);
-  transition: width 0.3s;
+  transition: width 0.3s ease;
 }
 
 .nav-list a:hover::after,
@@ -159,6 +174,10 @@ h3 { font-size: 1.35rem; }
 .nav-list a:hover,
 .nav-list a.active {
   color: var(--ocean);
+}
+
+.nav-list a.active {
+  font-weight: 700;
 }
 
 /* ===== Hero ===== */
@@ -1276,7 +1295,7 @@ h3 { font-size: 1.35rem; }
   }
 
   .nav-list {
-    display: none;
+    display: flex;
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -1284,12 +1303,16 @@ h3 { font-size: 1.35rem; }
     right: 0;
     background: var(--white);
     box-shadow: 0 8px 16px var(--shadow);
-    padding: 1rem 0;
+    padding: 0;
     gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
   }
 
   .nav-list.open {
-    display: flex;
+    max-height: 400px;
+    padding: 0.5rem 0;
   }
 
   .nav-list li {
@@ -1299,7 +1322,21 @@ h3 { font-size: 1.35rem; }
 
   .nav-list a {
     display: block;
-    padding: 0.75rem 1rem;
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+    border-left: 3px solid transparent;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+
+  .nav-list a:hover {
+    background: var(--sand-light);
+    border-left-color: var(--sunset);
+  }
+
+  .nav-list a.active {
+    background: var(--sand-light);
+    border-left-color: var(--ocean);
+    color: var(--ocean);
   }
 
   .nav-list a::after {
