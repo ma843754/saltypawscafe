@@ -31,80 +31,73 @@
     </div>
   </section>
 
-  <!-- Contact Content -->
+  <!-- Info Cards -->
   <section class="section">
     <div class="container">
-      <div class="contact-grid">
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-card__icon">&#128205;</div>
+          <h3>Address</h3>
+          <p>1247 Ocean Blvd<br>Satellite Beach, FL 32937</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card__icon">&#128336;</div>
+          <h3>Hours</h3>
+          <p>Mon &ndash; Fri: 6:00 AM &ndash; 6:00 PM<br>Sat &ndash; Sun: 7:00 AM &ndash; 7:00 PM</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card__icon">&#128222;</div>
+          <h3>Phone</h3>
+          <p>(321) 555-PAWS<br><span class="contact-card__sub">(321) 555-7297</span></p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card__icon">&#9993;</div>
+          <h3>Email</h3>
+          <p>hello@saltypawscafe.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Form -->
-        <div class="contact-form">
+  <!-- Contact Form -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="contact-form-wrap">
+        <div class="contact-form-header text-center">
           <h2>Send Us a Message</h2>
-          <br>
-          <form action="#" method="post">
+          <p>Fill out the form below and we'll get back to you within one business day.</p>
+        </div>
+        <form class="contact-form" action="#" method="post">
+          <div class="form-row">
             <div class="form-group">
               <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
+              <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
             </div>
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
             </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <select id="subject" name="subject">
-                <option value="general">General Inquiry</option>
-                <option value="catering">Catering / Events</option>
-                <option value="merch">Merchandise</option>
-                <option value="feedback">Feedback</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary">Send Message</button>
-          </form>
-        </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="How can we help?" required></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn--primary btn--lg">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 
-        <!-- Info Cards -->
-        <div class="contact-info">
-          <div class="contact-info-card">
-            <div class="icon">&#128205;</div>
-            <div>
-              <h3>Location</h3>
-              <p>Satellite Beach, FL 32937</p>
-            </div>
-          </div>
-          <div class="contact-info-card">
-            <div class="icon">&#128222;</div>
-            <div>
-              <h3>Phone</h3>
-              <p>(321) 555-PAWS</p>
-            </div>
-          </div>
-          <div class="contact-info-card">
-            <div class="icon">&#9993;</div>
-            <div>
-              <h3>Email</h3>
-              <p>hello@saltypawscafe.com</p>
-            </div>
-          </div>
-          <div class="contact-info-card">
-            <div class="icon">&#128336;</div>
-            <div>
-              <h3>Hours</h3>
-              <p>Mon &ndash; Fri: 6 AM &ndash; 6 PM<br>Sat &ndash; Sun: 7 AM &ndash; 7 PM</p>
-            </div>
-          </div>
-          <div class="contact-info-card">
-            <div class="icon">&#128247;</div>
-            <div>
-              <h3>Follow Us</h3>
-              <p>@saltypawscafe on Instagram &amp; Facebook</p>
-            </div>
-          </div>
-        </div>
-
+  <!-- Social / Follow -->
+  <section class="section text-center">
+    <div class="container">
+      <h2>Follow Along</h2>
+      <p style="color: var(--text-light); max-width: 480px; margin: 0.5rem auto 1.5rem;">Keep up with new menu drops, merch releases, and pup photos on social media.</p>
+      <div class="social-links">
+        <span class="social-link">&#128247; @saltypawscafe on Instagram</span>
+        <span class="social-link">&#128077; Salty Paws Caf&eacute; on Facebook</span>
       </div>
     </div>
   </section>
