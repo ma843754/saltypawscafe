@@ -1,23 +1,15 @@
-# Development Process
+I built a client-side shopping cart feature for the Merch page of my Salty Paws Café site. Users can click “Add to Cart” on a product, adjust quantities with + and − buttons, remove items, and see a live-updating subtotal and total. The cart state persists using localStorage, so refreshing the page does not clear the cart. The goal was to simulate a real e-commerce interaction without adding backend payment logic.
 
-How we built the shopping cart feature, and the workflow used throughout.
+Working in micro-iterations felt slower at first because I’m used to asking for full features in one prompt. However, breaking it into small, testable steps made debugging much easier. After each change, I could test one behavior—like incrementing quantity—without wondering what else might have broken. It felt more controlled and intentional.
 
----
+During self-review, the AI consistently caught edge cases. For example, it pointed out that quantity could drop below 1 if I didn’t clamp the value, and that duplicate “Add to Cart” clicks should increase quantity instead of creating multiple identical entries. It also suggested guarding against JSON parsing errors when loading from localStorage. One issue it missed that I caught was a mismatch between the cart container ID in HTML and the one referenced in JavaScript, which prevented rendering.
+
+Compared to CLI tools, the browser-based experience was easier for reviewing changes and capturing screenshots. The CLI feels faster for experienced workflows but can encourage larger, less-controlled edits. I would use micro-iteration and self-review for interactive features involving state and user input. I would skip it for minor styling or simple content updates where the overhead isn’t necessary.
 
 ## Workflow
 
-Each feature was broken into **5–8 reviewable steps** before writing any code.
+Each feature was broken into 6 reviewable steps before writing any code.
 Each step was scoped to roughly 5–10 minutes of review time and produced something testable in the browser.
-
-After each step was coded, a **review pass** was done before moving on:
-- Re-read every changed file fresh
-- Check for bugs, edge cases, security issues, and UX problems
-- Distinguish between "fix now" (real bugs) and "fix later" (deferred to the right step)
-- Only apply fixes that were genuinely necessary at that point
-
-This kept each step focused and prevented scope creep during implementation.
-
----
 
 ## Bugs caught in review (and when)
 
@@ -36,34 +28,4 @@ This kept each step focused and prevented scope creep during implementation.
 - **XSS via `innerHTML` with `item.name`** — product names were embedded directly into a template literal used with `innerHTML`. Safe today (hardcoded data), but a real injection vector if product source ever changes. Replaced with `createElement` + `textContent` throughout.
 
 ### Step 5 review
-- **`−` button has no disabled state at qty 1** — looked active but had no effect, creating UX confusion. Fixed by setting `decBtn.disabled = item.qty <= 1` and adding `:disabled` CSS (`opacity: 0.35; cursor: not-allowed`).
-
----
-
-## Security notes
-
-- All user-facing strings set via `textContent`, never `innerHTML`
-- `aria-label` on the remove button uses template literal (safe — `setAttribute` does not parse HTML)
-- `data-price` read via `parseFloat()` — `NaN` would be stored silently if price data were malformed, but source is hardcoded HTML so risk is negligible
-- `localStorage` key is namespaced (`saltyPawsCart`) to avoid collisions with other scripts
-
----
-
-## Files changed
-
-| File | Role |
-|---|---|
-| `merch.html` | Product data attributes, button markup, drawer HTML, cart icon |
-| `styles.css` | Button, drawer, overlay, badge, item, qty control styles |
-| `cart.js` | All cart logic: storage, rendering, open/close, badge |
-
----
-
-## Deferred items (known, not fixed)
-
-These were identified in review but intentionally left for later:
-
-- **Floating point arithmetic in total** — `0.1 + 0.2` precision issues are masked by `.toFixed(2)` for display. Working in integer cents would be safer if totals are ever compared or sent to a backend.
-- **`focus-visible` styles on cart buttons** — keyboard users get browser-default outlines. Should be added in a polish pass.
-- **Mobile layout at very narrow widths** — cart icon + hamburger menu may crowd at ~375px. Needs testing on device.
-- **Escape key fires even when drawer is closed** — `closeCart()` is a no-op on a closed drawer so no visible bug, but the listener runs unconditionally.
+- **`−` button has no disabled state at qty 1** — looked active but had no effect, creating UX confusion. Fixed by setting `decBtn.disabled = item.qty <= 1` and adding `:disabled` CSS.
