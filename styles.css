@@ -1239,7 +1239,7 @@ h3 { font-size: 1.35rem; }
   width: 100%;
   margin-top: 1rem;
   padding: 0.65rem 1rem;
-  background: var(--ocean);
+  background: var(--ocean-dark);
   color: var(--white);
   border: none;
   border-radius: 50px;
@@ -1250,7 +1250,7 @@ h3 { font-size: 1.35rem; }
 }
 
 .btn-add-to-cart:hover {
-  background: var(--ocean-dark);
+  background: #0d5c6a;
   transform: translateY(-2px);
 }
 
@@ -1560,7 +1560,7 @@ h3 { font-size: 1.35rem; }
   position: absolute;
   top: -4px;
   right: -6px;
-  background: var(--sunset);
+  background: var(--ocean-dark);
   color: var(--white);
   font-size: 0.65rem;
   font-weight: 800;
@@ -1645,9 +1645,9 @@ h3 { font-size: 1.35rem; }
   padding: 1rem 1.5rem;
 }
 
-.cart-items:empty::after {
-  content: 'Your cart is empty.';
-  display: block;
+
+.cart-empty-msg {
+  list-style: none;
   color: var(--text-light);
   font-size: 0.9rem;
   text-align: center;
@@ -1667,7 +1667,7 @@ h3 { font-size: 1.35rem; }
 }
 
 .cart-total span {
-  color: var(--sunset);
+  color: var(--ocean-dark);
 }
 
 .cart-item {
@@ -1693,7 +1693,7 @@ h3 { font-size: 1.35rem; }
 .cart-item__price {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--sunset);
+  color: var(--ocean-dark);
   white-space: nowrap;
 }
 

@@ -20,18 +20,18 @@
         <li><a href="merch.html" class="active">Merch</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button class="cart-icon-btn" id="cartOpenBtn" type="button" aria-label="Open cart">
+      <button class="cart-icon-btn" id="cartOpenBtn" type="button" aria-label="Open cart" aria-expanded="false" aria-controls="cartDrawer">
         &#128722;
-        <span class="cart-badge" id="cartBadge" hidden>0</span>
+        <span class="cart-badge" id="cartBadge" aria-hidden="true" hidden>0</span>
       </button>
     </div>
   </header>
 
   <!-- Cart Drawer -->
   <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
-  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" inert>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartHeading" inert>
     <div class="cart-drawer__header">
-      <h2>Your Cart</h2>
+      <h2 id="cartHeading">Your Cart</h2>
       <button class="cart-close-btn" id="cartCloseBtn" type="button" aria-label="Close cart">&#10005;</button>
     </div>
     <ul class="cart-items" id="cartItems"></ul>
@@ -84,7 +84,7 @@
             <h3>Classic Logo Tee</h3>
             <p>100% combed cotton with the Salty Paws wave logo screen-printed on the chest. Relaxed fit in ocean blue, sand, and white.</p>
             <div class="price">$28.00</div>
-            <button class="btn-add-to-cart" type="button">Add to Cart</button>
+            <button class="btn-add-to-cart" type="button" aria-label="Add Classic Logo Tee to cart">Add to Cart</button>
           </div>
         </div>
 
@@ -97,7 +97,7 @@
             <h3>Sunset Paws Tee</h3>
             <p>Lightweight tri-blend tee with a sunset-and-paw-print graphic across the back. Unisex sizing, S through XXL.</p>
             <div class="price">$32.00</div>
-            <button class="btn-add-to-cart" type="button">Add to Cart</button>
+            <button class="btn-add-to-cart" type="button" aria-label="Add Sunset Paws Tee to cart">Add to Cart</button>
           </div>
         </div>
 
@@ -111,7 +111,7 @@
             <h3>Heavyweight Pullover Hoodie</h3>
             <p>Thick fleece-lined pullover with an embroidered chest logo and kangaroo pocket. Built for cool beach nights.</p>
             <div class="price">$48.00</div>
-            <button class="btn-add-to-cart" type="button">Add to Cart</button>
+            <button class="btn-add-to-cart" type="button" aria-label="Add Heavyweight Pullover Hoodie to cart">Add to Cart</button>
           </div>
         </div>
 
@@ -124,7 +124,7 @@
             <h3>Zip-Up Beach Hoodie</h3>
             <p>Midweight zip-up in charcoal with a tonal Salty Paws wave graphic on the back. Perfect layering piece year-round.</p>
             <div class="price">$45.00</div>
-            <button class="btn-add-to-cart" type="button">Add to Cart</button>
+            <button class="btn-add-to-cart" type="button" aria-label="Add Zip-Up Beach Hoodie to cart">Add to Cart</button>
           </div>
         </div>
 
@@ -138,7 +138,7 @@
             <h3>Trucker Hat</h3>
             <p>Embroidered paw logo on a breathable mesh-back trucker cap. Adjustable snapback, one size fits most.</p>
             <div class="price">$24.00</div>
-            <button class="btn-add-to-cart" type="button">Add to Cart</button>
+            <button class="btn-add-to-cart" type="button" aria-label="Add Trucker Hat to cart">Add to Cart</button>
           </div>
         </div>
 
@@ -151,7 +151,7 @@
             <h3>Dad Hat &mdash; Sand</h3>
             <p>Washed cotton dad hat in sand with a small embroidered coffee-cup logo. Low-profile, adjustable strap.</p>
             <div class="price">$22.00</div>
-            <button class="btn-add-to-cart" type="button">Add to Cart</button>
+            <button class="btn-add-to-cart" type="button" aria-label="Add Dad Hat — Sand to cart">Add to Cart</button>
           </div>
         </div>
 
@@ -165,7 +165,7 @@
             <h3>Vinyl Sticker Pack</h3>
             <p>Set of 6 waterproof die-cut vinyl stickers &mdash; paws, waves, coffee cups, and the Salty Paws wordmark. Laptop and water-bottle approved.</p>
             <div class="price">$8.00</div>
-            <button class="btn-add-to-cart" type="button">Add to Cart</button>
+            <button class="btn-add-to-cart" type="button" aria-label="Add Vinyl Sticker Pack to cart">Add to Cart</button>
           </div>
         </div>
 
@@ -178,7 +178,7 @@
             <h3>Bumper Sticker</h3>
             <p>"My dog &amp; I drink at Salty Paws" bumper sticker. UV-resistant vinyl, 8 inches wide. Made to last outdoors.</p>
             <div class="price">$4.00</div>
-            <button class="btn-add-to-cart" type="button">Add to Cart</button>
+            <button class="btn-add-to-cart" type="button" aria-label="Add Bumper Sticker to cart">Add to Cart</button>
           </div>
         </div>
 
@@ -192,7 +192,7 @@
             <h3>Classic Paw Bandana</h3>
             <p>Salty Paws branded bandana in ocean blue with a repeating paw print pattern. Adjustable snap closure in S, M, and L.</p>
             <div class="price">$14.00</div>
-            <button class="btn-add-to-cart" type="button">Add to Cart</button>
+            <button class="btn-add-to-cart" type="button" aria-label="Add Classic Paw Bandana to cart">Add to Cart</button>
           </div>
         </div>
 
@@ -205,7 +205,7 @@
             <h3>Sunset Stripe Bandana</h3>
             <p>Tropical sunset-stripe pattern with an embroidered Salty Paws logo. Tie-on style, fits most breeds.</p>
             <div class="price">$14.00</div>
-            <button class="btn-add-to-cart" type="button">Add to Cart</button>
+            <button class="btn-add-to-cart" type="button" aria-label="Add Sunset Stripe Bandana to cart">Add to Cart</button>
           </div>
         </div>
 

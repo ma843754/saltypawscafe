@@ -48,10 +48,18 @@ function removeItem(id) {
 const cartItemsEl = document.getElementById('cartItems');
 const cartTotalEl = document.getElementById('cartTotal');
 const cartBadgeEl = document.getElementById('cartBadge');
+const cartOpenBtn = document.getElementById('cartOpenBtn');
 
 function renderCart() {
   const cart = getCart();
   cartItemsEl.innerHTML = '';
+
+  if (cart.length === 0) {
+    const emptyMsg = document.createElement('li');
+    emptyMsg.className = 'cart-empty-msg';
+    emptyMsg.textContent = 'Your cart is empty.';
+    cartItemsEl.appendChild(emptyMsg);
+  }
 
   cart.forEach(item => {
     const li = document.createElement('li');
@@ -76,24 +84,27 @@ function renderCart() {
     // Bottom row: qty controls + remove
     const controls = document.createElement('div');
     controls.className = 'cart-item__controls';
+    controls.setAttribute('role', 'group');
+    controls.setAttribute('aria-label', `Quantity for ${item.name}`);
 
     const decBtn = document.createElement('button');
     decBtn.className = 'cart-qty-btn';
     decBtn.type = 'button';
     decBtn.textContent = '−';
-    decBtn.setAttribute('aria-label', 'Decrease quantity');
+    decBtn.setAttribute('aria-label', `Decrease quantity of ${item.name}`);
     decBtn.disabled = item.qty <= 1;
     decBtn.addEventListener('click', () => updateQuantity(item.id, -1));
 
     const qtyEl = document.createElement('span');
     qtyEl.className = 'cart-item__qty';
     qtyEl.textContent = item.qty;
+    qtyEl.setAttribute('aria-label', `Quantity: ${item.qty}`);
 
     const incBtn = document.createElement('button');
     incBtn.className = 'cart-qty-btn';
     incBtn.type = 'button';
     incBtn.textContent = '+';
-    incBtn.setAttribute('aria-label', 'Increase quantity');
+    incBtn.setAttribute('aria-label', `Increase quantity of ${item.name}`);
     incBtn.addEventListener('click', () => updateQuantity(item.id, 1));
 
     const removeBtn = document.createElement('button');
@@ -119,6 +130,13 @@ function renderCart() {
   const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
   cartBadgeEl.textContent = totalQty;
   cartBadgeEl.hidden = totalQty === 0;
+
+  // Keep the cart open button label in sync so screen readers hear the count
+  if (totalQty === 0) {
+    cartOpenBtn.setAttribute('aria-label', 'Open cart');
+  } else {
+    cartOpenBtn.setAttribute('aria-label', `Open cart, ${totalQty} item${totalQty !== 1 ? 's' : ''}`);
+  }
 }
 
 // Drawer open/close
@@ -129,21 +147,47 @@ function openCart() {
   cartDrawer.classList.add('is-open');
   cartOverlay.classList.add('is-open');
   cartDrawer.removeAttribute('inert');
+  cartOpenBtn.setAttribute('aria-expanded', 'true');
+  // Move focus to the close button so keyboard/AT users are immediately inside the dialog
+  document.getElementById('cartCloseBtn').focus();
 }
 
 function closeCart() {
   cartDrawer.classList.remove('is-open');
   cartOverlay.classList.remove('is-open');
   cartDrawer.setAttribute('inert', '');
+  cartOpenBtn.setAttribute('aria-expanded', 'false');
+  // Return focus to the element that opened the drawer
+  cartOpenBtn.focus();
 }
 
-document.getElementById('cartOpenBtn').addEventListener('click', openCart);
+cartOpenBtn.addEventListener('click', openCart);
 document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
 cartOverlay.addEventListener('click', closeCart);
 
-// Close on Escape key
+// Keyboard: Escape closes; Tab is trapped inside the open drawer
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeCart();
+  if (e.key === 'Escape' && cartDrawer.classList.contains('is-open')) {
+    closeCart();
+    return;
+  }
+
+  if (e.key === 'Tab' && cartDrawer.classList.contains('is-open')) {
+    const focusable = [
+      ...cartDrawer.querySelectorAll('button:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    ];
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 });
 
 // Wire up "Add to Cart" buttons
